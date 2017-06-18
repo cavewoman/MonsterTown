@@ -10,8 +10,14 @@ import Foundation
 
 class Vampire: Monster {
     var thrall: [Vampire] = []
+    
+    required init(town: Town?, monsterName: String) {
+        super.init(town: town, monsterName: monsterName)
+    }
+    
+    
     override func terrorizeTown() {
-        thrall.append(Vampire())
+        thrall.append(Vampire(town: town, monsterName: "child"))
         if let town = town, town.population > 0 {
             self.town?.changePopulation(by: -1)
         }
