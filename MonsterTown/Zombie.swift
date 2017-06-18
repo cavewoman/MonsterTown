@@ -12,12 +12,14 @@ class Zombie: Monster {
     override class var spookyNoise: String {
         return "Brains..."
     }
-    
     var walksWithLimp = true
+    private var isFallingApart = false
     
     final override func terrorizeTown() {
-        if let town = town, town.population > 0 {
-            self.town?.changePopulation(by: -10)
+        if !isFallingApart {
+            if let town = town, town.population > 0 {
+                self.town?.changePopulation(by: -10)
+            }
         }
         super.terrorizeTown()
     }
