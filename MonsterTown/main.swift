@@ -8,15 +8,13 @@
 
 import Foundation
 
-var myTown = Town(region: "West", population: 10_000, stoplights: 6)
+var myTown = Town(population: 10_000, stoplights: 6)
 myTown.printDescription()
 let myTownSize = myTown.townSize
 print(myTownSize)
 myTown.changePopulation(by: 1_000_000)
 print("Size: \(myTown.townSize); population: \(myTown.population)")
-let fredTheZombie = Zombie()
-fredTheZombie.name = "Fred"
-fredTheZombie.town = myTown
+let fredTheZombie = Zombie(limp: false, fallingApart: false, town: myTown, monsterName: "Fred")
 fredTheZombie.terrorizeTown()
 fredTheZombie.town?.printDescription()
 
@@ -28,8 +26,9 @@ if Zombie.isTerrifying {
     print("Run away!")
 }
 
-var damonTheVamp = Vampire()
-damonTheVamp.town = myTown
+var damonTheVamp = Vampire(town: myTown, monsterName: "Damon")
 damonTheVamp.terrorizeTown()
 print("Vamp trall is \(damonTheVamp.thrall)")
 damonTheVamp.town?.printDescription()
+
+var convenienceZombie = Zombie(limp: true, fallingApart: false)

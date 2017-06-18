@@ -10,7 +10,7 @@ import Foundation
 
 class Monster {
     var town: Town?
-    var name = "Monster"
+    var name: String
     static let isTerrifying = true
     var victimPool: Int {
         get {
@@ -20,6 +20,12 @@ class Monster {
             town?.population = newVictimPool
         }
     }
+    
+    init(town: Town?, monsterName: String) {
+        self.town = town
+        name = monsterName
+    }
+    
     class var spookyNoise: String {
         return "Grrr..."
     }
