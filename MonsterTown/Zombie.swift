@@ -12,6 +12,17 @@ class Zombie: Monster {
     var walksWithLimp: Bool
     private(set) var isFallingApart: Bool
     
+    
+    required init(town: Town?, monsterName: String) {
+        walksWithLimp = false
+        isFallingApart = false
+        super.init(town: town, monsterName: monsterName)
+    }
+    
+    deinit {
+        print("Zombie named \(name) is no longer with us.")
+    }
+    
     init(limp: Bool, fallingApart: Bool, town: Town?, monsterName: String) {
         walksWithLimp = limp
         isFallingApart = fallingApart
